@@ -1,6 +1,6 @@
 import copy
 from quoridor_error import QuoridorError
-import graphe
+from graphe import construire_graphe
 import argparse
 
 
