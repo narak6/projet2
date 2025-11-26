@@ -5,9 +5,7 @@ import argparse
 
 
 class Quoridor:
-    """
-    Classe représentant une partie de Quoridor.
-    """
+    
 
     def __init__(self, joueurs=None, murs=None):
         """
@@ -49,10 +47,6 @@ class Quoridor:
             "murs": self.murs,
             "tour": self.tour,
         })
-
-    # -------------------------------
-    #   MÉTHODES DE FORMATTAGE
-    # -------------------------------
 
     def formater_entête(self):
         joueurs = self.joueurs
@@ -107,10 +101,7 @@ class Quoridor:
     def __str__(self):
         return self.formater_entête() + self.formater_le_damier()
 
-    # ---------------------------------------
-    #         MÉTHODES DE LOGIQUE
-    # ---------------------------------------
-
+  
     def déplacer_un_joueur(self, nom_joueur, destination):
         x, y = destination
 
@@ -224,9 +215,7 @@ class Quoridor:
         return coup, pos
 
 
-# ------------------------------------------------------------
-# FONCTION DE PHASE 1 — DEMANDÉE AUSSI EN PHASE 2
-# ------------------------------------------------------------
+
 def interpréter_la_ligne_de_commande():
     parser = argparse.ArgumentParser(description="Quoridor")
     parser.add_argument("idul", help="IDUL du joueur")
