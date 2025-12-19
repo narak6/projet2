@@ -159,12 +159,21 @@ class Quoridor:
         )
 
         for i, joueur in enumerate(self.joueurs, start=1):
-            if not any(n[1] == (1 if i == 1 else 9) for n in g.nodes):
+            objectif = 9 if i == 1 else 1
+            if not any(n[1] == objectif for n in construire_graphe(
+                {1: self.joueurs[0]["pos"], 2: self.joueurs[1]["pos"]},
+                self.murs["horizontaux"],
+                self.murs["verticaux"]
+            ).nodes):
                 raise QuoridorError("Impossible d’enfermer un joueur.")
+
 
         joueur["murs"] -= 1
 
     def appliquer_un_coup(self, nom_joueur, type_coup, position):
+        if nom_joueur not in [j["nom"] for j in self.joueurs]:
+            raise QuoridorError("Joueur inexistant.")
+
         if self.partie_terminée():
             raise QuoridorError("La partie est déjà terminée.")
 
