@@ -8,11 +8,10 @@ class Quoridor:
     
 
     def __init__(self, joueurs=None, murs=None):
-        """
-        Initialise une partie selon les règles du jeu.
-        """
+
         if joueurs is None:
-            raise QuoridorError("Vous devez fournir la liste des joueurs.")
+            joueurs = ["joueur1", "joueur2"]
+
 
         if not isinstance(joueurs, list) or len(joueurs) != 2:
             raise QuoridorError("Il faut exactement deux joueurs.")
@@ -100,6 +99,7 @@ class Quoridor:
 
     def __str__(self):
         return self.formater_entête() + self.formater_le_damier()
+
 
   
     def déplacer_un_joueur(self, nom_joueur, destination):
